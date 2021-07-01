@@ -1,0 +1,63 @@
+/* default browser setting reset */
+html, body,
+h1, h2, h3, h4, h5, h6,
+a, p, span,
+em, small, strong,
+sub, sup,
+mark, del, ins, strike,
+abbr, dfn,
+blockquote, q, cite,
+code, pre,
+ol, ul, li, dl, dt, dd,
+div, section, article,
+main, aside, nav,
+header, hgroup, footer,
+img, figure, figcaption,
+address, time,
+audio, video,
+canvas, iframe,
+details, summary,
+fieldset, form, label, legend,
+table, caption,
+tbody, tfoot, thead,
+tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+.full-width{
+    width: 100%;
+    height: auto;
+}
+.center{
+    text-align: center;
+}
+.margin-1{
+    margin: 1rem;
+}
+#container { 
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    grid-template-rows: repeat(3, 140px);
+    height: auto;
+    justify-content: center;
+    align-content: center;
+}
+.cell{
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cell img{
+    height: 100px;
+    width: 100px;
+}
+#reset-button{
+    margin-top: .5rem;
+}
