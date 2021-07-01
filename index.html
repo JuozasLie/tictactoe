@@ -8,6 +8,12 @@
     <title>TicTacToe</title>
 </head>
 <body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1 id="game-result"></h1>
+        </div>
+    </div>
     <header class="full-width center margin-1">
         <h1>Tic Tac Toe</h1>
         <h2>Current player: <span id="player">X</span></h2>
@@ -26,7 +32,7 @@
         </section>
     </main>
     <footer class="full-width center margin-1">
-        <h2>Turn number: <span id="turn-number">1</span></h2>
+        <h2>Turn number: <span id="turn-number"></span></h2>
         <button id="reset-button">
             Reset game
         </button>
