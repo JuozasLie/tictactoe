@@ -23,15 +23,14 @@ document.querySelector('#reset-button').addEventListener('click', restartGame);
 
 //Winning combinations
 const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
     [1, 4, 7],
     [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-    [3, 5, 7]
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7],
 ];
 
 //Starting variables
@@ -84,14 +83,15 @@ function handleCellPlayed(clickedCell, clickedCellIndex){
 }
 function handleVictoryValidation(){
     let roundWon = false;
-    for(let i = 0; i <= 8; i++){
+    for(let i = 0; i <= 7; i++){
         let victoryCondition = winningConditions[i];
-        let firstCell = gameState[victoryCondition[0]];
+        let firstCell  = gameState[victoryCondition[0]];
         let secondCell = gameState[victoryCondition[1]];
-        let thirdCell = gameState[victoryCondition[2]];
-        if(firstCell == "" || secondCell == "" || thirdCell == ""){
+        let thirdCell  = gameState[victoryCondition[2]];
+        if(firstCell === "" || secondCell === "" || thirdCell === ""){
             continue;
-        } else if(firstCell == secondCell && secondCell == thirdCell){
+        }
+        if(firstCell === secondCell && secondCell === thirdCell){
             roundWon = true;
             break;
         } 
