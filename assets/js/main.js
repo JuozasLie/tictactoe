@@ -37,18 +37,21 @@ const winningConditions = [
 let gameActive = true;
 let currentPlayer = "X";
 let turnNumber = 1;
-let gameState = ["","","","","","","","","",""];
+let gameState = ["","","",
+                 "","","",
+                 "","",""];
 
 //DOM manipulation
 let displayCurrentPlayer = () => playerStatus.innerHTML = currentPlayer;
 let displayTurnNumber = () => turnStatus.innerHTML = turnNumber;
 let displayWinner = () => {
     winnerStatus.innerHTML = `The winner is ${currentPlayer}!`;
-    toggleModal();
+    setTimeout(()=> toggleModal(),700)
 }
 let displayDraw = () => {
     winnerStatus.innerHTML = "The game ended in a draw!"
-    toggleModal();
+    setTimeout(()=> toggleModal(),700)
+    
 }
 let fillCell = (cell) => {
     let img = document.createElement('img');
@@ -67,27 +70,26 @@ function incrementTurnNumber(){
     displayTurnNumber();
 };
 function handleCellClick(clickEvent){
-    if(gameActive){
         const clickedCell = clickEvent.target;
         const clickedCellIndex = parseInt(clickedCell.getAttribute("data-cell-index"));
         if(gameState[clickedCellIndex] !== "" || !gameActive){
             return;
         }
         handleCellPlayed(clickedCell, clickedCellIndex);
-    }
 }
 function handleCellPlayed(clickedCell, clickedCellIndex){
     gameState[clickedCellIndex] = currentPlayer;
     fillCell(clickedCell);
+    console.log(gameState);
     handleVictoryValidation();
 }
 function handleVictoryValidation(){
     let roundWon = false;
     for(let i = 0; i <= 7; i++){
         let victoryCondition = winningConditions[i];
-        let firstCell  = gameState[victoryCondition[0]];
-        let secondCell = gameState[victoryCondition[1]];
-        let thirdCell  = gameState[victoryCondition[2]];
+        let firstCell  = gameState[victoryCondition[0]-1];
+        let secondCell = gameState[victoryCondition[1]-1];
+        let thirdCell  = gameState[victoryCondition[2]-1];
         if(firstCell === "" || secondCell === "" || thirdCell === ""){
             continue;
         }
